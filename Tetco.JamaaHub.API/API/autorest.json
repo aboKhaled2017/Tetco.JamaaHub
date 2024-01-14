@@ -1,0 +1,14 @@
+﻿{
+  "Outputs": [
+    {
+      "LanguageGenerator": "typescript",
+      "OutputFolder": "autogen-api",
+      "SwaggerDoc": "v1"
+    }
+
+  ],
+  "Namespace": "Naqel-Api",
+  "StartupAssemblyPath": "Naqel-Api.dll",
+  "AddCredentials": true
+
+}
