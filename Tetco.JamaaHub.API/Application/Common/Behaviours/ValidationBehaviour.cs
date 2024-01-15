@@ -1,4 +1,4 @@
-﻿using ValidationException = Application.Common.Exceptions.ValidationException;
+﻿using ValidationException = Application.Common.Exceptions.JamaaHubValidationException;
 
 namespace Application.Common.Behaviours;
 

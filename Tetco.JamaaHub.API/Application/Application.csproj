@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\AgentOperations\Commands\InsertNewAgentBatch\" />
     <Folder Include="Features\AgentOperations\Commands\InsertAgentErrors\" />
     <Folder Include="Features\AgentOperations\Queries\GetAgentBatches\" />
     <Folder Include="Features\AgentOperations\Queries\GetAgentErrors\" />

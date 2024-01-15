@@ -1,6 +1,4 @@
-﻿using Domain.Constants;
-
-namespace Application.Common.Models;
+﻿namespace Domain.Common.Patterns;
 
 public class Result : Result<object>
 {
@@ -8,30 +6,30 @@ public class Result : Result<object>
     {
 
     }
-    internal Result(bool succeeded, IEnumerable<string> errors, string message = null) : base(succeeded, errors, message)
+    internal Result(bool succeeded, IDictionary<string, string[]> errors, string message = null) : base(succeeded, errors, message)
     {
     }
 
     public static Result Success(string message = null)
     {
-        return new Result(true, Array.Empty<string>())
+        return new Result(true, null)
         {
             Message = message
         };
     }
     public static Result Failure(string errorCode, string errorMessage)
     {
-        return new Result(false, Enumerable.Empty<string>())
+        return new Result(false, new Dictionary<string, string[]>())
         {
-            ErrorCode = errorCode,
+            Code = errorCode,
             Message = errorMessage
         };
     }
-    public static Result Failure(string errorCode, IEnumerable<string> errors)
+    public static Result Failure(string errorCode, IDictionary<string, string[]> errors, string message = null)
     {
-        return new Result(false, errors)
+        return new Result(false, errors,message)
         {
-            ErrorCode = errorCode
+            Code = errorCode
         };
     }
 }
@@ -41,10 +39,10 @@ public class Result<TData>
     {
 
     }
-    internal Result(bool succeeded, IEnumerable<string> errors, string message = null)
+    internal Result(bool succeeded, IDictionary<string, string[]> errors, string message = null)
     {
         Succeeded = succeeded;
-        Errors = errors.ToArray();
+        Errors = errors;
         Message = message;
     }
 
@@ -52,33 +50,33 @@ public class Result<TData>
     {
         get; init;
     }
-    public string[] Errors
+    public IDictionary<string, string[]> Errors
     {
         get; init;
     }
     public string Message { get; set; }
-    public string ErrorCode { get; set; }
+    public string Code { get; set; }
 
     public static Result<TData> Success(string message = null)
     {
-        return new Result<TData>(true, Array.Empty<string>())
+        return new Result<TData>(true,null)
         {
             Message = message
         };
     }
     public static Result<TData> Failure(string errorCode, string errorMessage)
     {
-        return new Result<TData>(false, Enumerable.Empty<string>())
+        return new Result<TData>(false,new Dictionary<string, string[]>())
         {
-            ErrorCode = errorCode,
+            Code = errorCode,
             Message = errorMessage
         };
     }
-    public static Result<TData> Failure(string errorCode, IEnumerable<string> errors)
+    public static Result<TData> Failure(string errorCode, IDictionary<string, string[]> errors)
     {
         return new Result<TData>(false, errors)
         {
-            ErrorCode = errorCode
+            Code = errorCode
         };
     }
     public TData Data { get; set; }

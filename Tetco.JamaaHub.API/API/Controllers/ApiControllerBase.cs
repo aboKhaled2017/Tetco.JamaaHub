@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using Application.Common.Exceptions;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,10 +35,7 @@ public abstract class ApiControllerBase : ControllerBase
     }
     protected IActionResult NotValidRequest(ValidationResult validationResult)
     {
-        return new ObjectResult(CreateValidationProblem(validationResult.Errors))
-        {
-            StatusCode = StatusCodes.Status400BadRequest
-        };
+        throw new JamaaHubValidationException(validationResult.Errors);
     }
 
 }

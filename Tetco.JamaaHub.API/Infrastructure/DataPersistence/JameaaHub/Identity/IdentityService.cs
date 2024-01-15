@@ -1,6 +1,6 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
 using Application.Common.Interfaces;
-using Application.Common.Models;
+using Domain.Common.Patterns;
 using Domain.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

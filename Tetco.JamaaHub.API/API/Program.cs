@@ -2,7 +2,7 @@ using Application;
 using Infrastructure;
 using Infrastructure.Data.JameahHub;
 using API;
-using API.Services;
+using API.MiddleWares;
 
 var builder = WebApplication.CreateBuilder ( args );
 
@@ -41,7 +41,7 @@ app.UseHttpsRedirection ( );
 app.UseAuthentication ( );
 app.UseAuthorization ( );
 
-app.UseMiddleware<CustomExceptionMiddleWare> ( );
+app.UseMiddleware<JamaaHubExceptionMiddleWare> ( );
 
 app.MapControllers ( );
 

@@ -1,4 +1,5 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain;
+using API.MiddleWares;
 using API.Services;
 using Infrastructure.Data.JameahHub;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,7 @@ public static class DependencyInjection
         services.AddHealthChecks()
             .AddDbContextCheck<JamaaHubDbContext>();
 
-        services.AddTransient<CustomExceptionMiddleWare>();
+        services.AddTransient<JamaaHubExceptionMiddleWare>();
 
 
         // Customise default API behaviour
