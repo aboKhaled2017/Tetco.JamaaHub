@@ -5,11 +5,11 @@ namespace Application.Common.Interfaces;
 
 public interface IJamaaHubDbContext
 {
-    DbSet<University> Universities
+    DbSet<HubUniversityAgent> Universities
     {
         get;
     }
-    DbSet<HubLog> HubLogs
+    DbSet<HubLog> Logs
     {
         get;
     }

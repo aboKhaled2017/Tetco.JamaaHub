@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.JameahHub.Configurations;
 
-public sealed class UniversityConfiguration : IEntityTypeConfiguration<University>
+public sealed class HubUniversityAgentConfiguration : IEntityTypeConfiguration<HubUniversityAgent>
 {
-    public void Configure(EntityTypeBuilder<University> builder)
+    public void Configure(EntityTypeBuilder<HubUniversityAgent> builder)
     {
+        builder.ToTable("Agents");
         builder.HasKey(x => x.Id);
 
         builder.Property(g => g.NameAr)
@@ -16,6 +17,11 @@ public sealed class UniversityConfiguration : IEntityTypeConfiguration<Universit
 
         builder.Property(g => g.NameEn)
             .HasMaxLength(200)
+            .IsRequired();
+
+        builder.Property(g => g.MackAddresses)
+            .HasMaxLength(200)
+            .HasConversion(x=>string.Join(",",x),y=>y.Split(",",StringSplitOptions.RemoveEmptyEntries))
             .IsRequired();
     }
 }

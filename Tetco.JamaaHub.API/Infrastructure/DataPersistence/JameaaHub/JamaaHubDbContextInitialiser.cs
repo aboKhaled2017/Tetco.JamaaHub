@@ -41,7 +41,7 @@ public class JamaaHubDbContextInitialiser
     {
         try
         {
-            await _context.Database.MigrateAsync();
+               await _context.Database.MigrateAsync();
         }
         catch (Exception ex)
         {
@@ -56,10 +56,11 @@ public class JamaaHubDbContextInitialiser
         {
             if (!await _context.Universities.AnyAsync())
             {
-                await _context.Universities.AddAsync(new University
+                await _context.Universities.AddAsync(new Domain.Entities.Hub.HubUniversityAgent
                 {
                     NameAr = "جامعه أ",
                     NameEn = "Jamaa A",
+                    MackAddresses=new string[] {"xxx.xxx.xx","yyy.yyy.yy"}
                 });
 
                 await _context.SaveChangesAsync(cancellationToken);

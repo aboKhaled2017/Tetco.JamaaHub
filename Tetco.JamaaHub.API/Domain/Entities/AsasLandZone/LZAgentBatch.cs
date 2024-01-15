@@ -2,9 +2,10 @@
 
 namespace Domain.Entities.AsasLandZone;
 
-public sealed class AgentBatch : BaseEntity<long>
+public sealed class LZAgentBatch : BaseEntity<long>
 {
     public int SchemaTypeId { get; set; }
+    public LZSchemaType SchemaType { get; set; }
     public int MigrationTypeId { get; set; }
     public string InstituteCode { get; set; }
     public Guid BatchGUID { get; set; }

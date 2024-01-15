@@ -8,7 +8,6 @@ using Infrastructure.AgentDataModels;
 using Infrastructure.Data.JameahHub;
 using Infrastructure.Data.JameahHub.Identity;
 using Infrastructure.Data.JameahHub.Interceptors;
-using Infrastructure.Data.UniversityAgent;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -106,7 +105,6 @@ public static class DependencyInjection
             options.UseSqlServer(connectionString);
         });
 
-        services.AddScoped<AsasLandZoneContextInitialiser>();
 
         return services;
     }

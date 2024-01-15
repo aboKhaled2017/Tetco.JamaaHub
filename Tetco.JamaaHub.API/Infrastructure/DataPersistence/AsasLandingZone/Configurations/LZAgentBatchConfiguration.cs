@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.AgentDataModels.Configurations
 {
-    public partial class AgentBatchConfiguration : IEntityTypeConfiguration<AgentBatch>
+    public sealed class LZAgentBatchConfiguration : IEntityTypeConfiguration<LZAgentBatch>
     {
-        public void Configure(EntityTypeBuilder<AgentBatch> entity)
+        public void Configure(EntityTypeBuilder<LZAgentBatch> entity)
         {
             entity.ToTable("Batches");
 
+            entity.HasKey(x => x.Id);
         }
-
     }
 }

@@ -18,33 +18,33 @@ namespace JamaaHub.Tests.Abstractions
 {
     public abstract class BaseIntegrationTest: IAsyncDisposable
     {
-        private DbContextOptions<ApplicationDbContext> _options;
-        protected ApplicationDbContext _context;
+        private DbContextOptions<JamaaHubDbContext> _options;
+        protected JamaaHubDbContext _context;
         private readonly IServiceProvider _sp;
         protected ISender _mediator;
         public BaseIntegrationTest()
         {
             // Initialize the in-memory database
-            _options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            _options = new DbContextOptionsBuilder<JamaaHubDbContext>()
                 .UseInMemoryDatabase(databaseName: "TestSeedsDatabase")
                 .Options;
 
             // Create a new context for each test
-            _context = new ApplicationDbContext(_options, new Mock<ILogger<ApplicationDbContext>>().Object);
+            _context = new JamaaHubDbContext(_options, new Mock<ILogger<JamaaHubDbContext>>().Object);
 
             //create new DI for registering context & settings
             var services = new ServiceCollection();
 
-            var loggerMock = new Mock<ILogger<IApplicationDbContext>>();
+            var loggerMock = new Mock<ILogger<JamaaHubDbContext>>();
             services.AddTransient(_ => loggerMock.Object);
 
-            services.AddScoped<IApplicationDbContext, ApplicationDbContext>(_ => _context);
+            services.AddScoped<JamaaHubDbContext, JamaaHubDbContext>(_ => _context);
           
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddMediatR(cfg =>
             {
-                cfg.RegisterServicesFromAssembly(typeof(IApplicationDbContext).Assembly);
+                cfg.RegisterServicesFromAssembly(typeof(JamaaHubDbContext).Assembly);
             });
 
             SetupAddtionalServices(services);

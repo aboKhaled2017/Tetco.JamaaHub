@@ -15,12 +15,14 @@ public partial class AsasLandZoneDb : DbContext, IAsasLandZoneDb
     {
         _logger = logger;
     }
-    public DbSet<AgentBatch> AgentBatchs => Set<AgentBatch>();
+    public DbSet<LZAgentBatch> AgentBatchs => Set<LZAgentBatch>();
+    public DbSet<LZSchemaType> SchemaTypes => Set<LZSchemaType>();
 
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.ApplyConfiguration(new AgentBatchConfiguration());
+        builder.ApplyConfiguration(new LZAgentBatchConfiguration());
+        builder.ApplyConfiguration(new LZSchemaTypeConfiguration());
     }
 }

@@ -2,8 +2,9 @@
 
 namespace Domain.Entities.Hub;
 
-public sealed class University : BaseEntity<int>
+public sealed class HubUniversityAgent : BaseEntity<int>
 {
     public string NameAr { get; set; }
     public string NameEn { get; set; }
+    public string[] MackAddresses { get; set; }
 }
