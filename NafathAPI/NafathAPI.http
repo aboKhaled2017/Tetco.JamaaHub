@@ -1,0 +1,6 @@
+@NafathAPI_HostAddress = http://localhost:5085
+
+GET {{NafathAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

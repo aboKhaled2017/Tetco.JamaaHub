@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tetco.JamaaHub.UI", "Tetco.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JamaaHub.API.Tests", "Tests\JamaaHub.Tests\JamaaHub.API.Tests.csproj", "{D12DAFA5-501E-4204-89FF-D5093A7C680E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NafathAPI", "NafathAPI\NafathAPI.csproj", "{84487680-A14D-46AC-9035-73268449F68D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{D12DAFA5-501E-4204-89FF-D5093A7C680E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D12DAFA5-501E-4204-89FF-D5093A7C680E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D12DAFA5-501E-4204-89FF-D5093A7C680E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84487680-A14D-46AC-9035-73268449F68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84487680-A14D-46AC-9035-73268449F68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84487680-A14D-46AC-9035-73268449F68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84487680-A14D-46AC-9035-73268449F68D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{53D5CF70-3BF5-448B-B370-F3F52A49A60E} = {4FFFEE03-30CE-4052-8F8D-7915CD152CE4}
 		{413E760F-3F9F-4000-AE0D-B91BE7F614EC} = {344BAA76-AF94-4230-A086-DDE77A98B543}
 		{D12DAFA5-501E-4204-89FF-D5093A7C680E} = {2914DB0C-07FE-445B-B886-687B8C1CF68C}
+		{84487680-A14D-46AC-9035-73268449F68D} = {4FFFEE03-30CE-4052-8F8D-7915CD152CE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8BC91C28-C620-4263-80DA-DB17A582716A}

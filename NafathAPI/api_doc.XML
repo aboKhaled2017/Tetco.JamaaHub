@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NafathAPI</name>
+    </assembly>
+    <members>
+        <member name="M:NafathAPI.Controllers.NafathAuthenticationController.SignIn(NafathAPI.Domain.Nafath.Dto.NafathSignInRequest,System.Threading.CancellationToken)">
+            <summary>
+            Basic Auth
+            </summary>
+            <param name="nationalId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NafathAPI.Controllers.NafathAuthenticationController.NafathCheckStatus(NafathAPI.Domain.Nafath.Dto.NafathCheckStatusRequest,System.Threading.CancellationToken)">
+            <summary>
+            Basic Auth
+            </summary>
+            <param name="transId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NafathAPI.Controllers.NafathAuthenticationController.NafathCallback(NafathAPI.Domain.Nafath.Dto.NafathCallbackRequest)">
+            <summary>
+             Basic Auth
+            </summary>
+            <param name="callbackRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="F:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.OneYearInSeconds">
+            <summary>
+            The number of seconds in one year
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.AddDefaultSecurePolicy">
+            <summary>
+            Add default headers in accordance with most secure approach
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.AddFrameOptionsDeny">
+            <summary>
+            Add X-Frame-Options DENY to all requests.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.AddXssProtectionBlock">
+            <summary>
+            Add X-XSS-Protection all requests.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.AddStrictTransportSecurityMaxAge(System.Int32)">
+            <summary>
+            Add Strict-Transport-Security max-age=<see cref="!:maxAge"/> to all requests.
+            Tells the user-agent to cache the domain in the STS list for the number of seconds provided.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.AddContentTypeOptionsNoSniff">
+            <summary>
+            Add X-Content-Type-Options nosniff to all requests.
+            Can be set to protect against MIME type confusion attacks.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.AddContentSecurityPolicy">
+            <summary>
+            Add X-Content-Security-Policy to all requests.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.RemoveServerHeader">
+            <summary>
+            Removes the Server header from all responses
+            </summary>
+        </member>
+        <member name="M:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersBuilder.Build">
+            <summary>
+            Builds a new <see cref="T:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersPolicy"/> using the entries added.
+            </summary>
+            <returns>The constructed <see cref="T:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersPolicy"/>.</returns>
+        </member>
+        <member name="P:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersPolicy.SetHeaders">
+            <summary>
+            A dictionary of Header, Value pairs that should be added to all requests
+            </summary>
+        </member>
+        <member name="P:NafathAPI.CrossCutting.Middlewares.MiddlewareExtensions.SecurityHeadersPolicy.RemoveHeaders">
+            <summary>
+            A hashset of Headers that should be removed from all requests
+            </summary>
+        </member>
+        <member name="M:NafathAPI.Extensions.CollectionExtensions.AddIfNotContains``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+            Adds an item to the collection if it's not already in the collection.
+            </summary>
+            <param name="source">The collection</param>
+            <param name="item">Item to check and add</param>
+            <typeparam name="T">Type of the items in the collection</typeparam>
+            <returns>Returns True if added, returns False if not.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.CollectionExtensions.AddIfNotContains``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds items to the collection which are not already in the collection.
+            </summary>
+            <param name="source">The collection</param>
+            <param name="items">Item to check and add</param>
+            <typeparam name="T">Type of the items in the collection</typeparam>
+            <returns>Returns the added items.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.CollectionExtensions.AddIfNotContains``1(System.Collections.Generic.ICollection{``0},System.Func{``0,System.Boolean},System.Func{``0})">
+            <summary>
+            Adds an item to the collection if it's not already in the collection based on the given <paramref name="predicate"/>.
+            </summary>
+            <param name="source">The collection</param>
+            <param name="predicate">The condition to decide if the item is already in the collection</param>
+            <param name="itemFactory">A factory that returns the item</param>
+            <typeparam name="T">Type of the items in the collection</typeparam>
+            <returns>Returns True if added, returns False if not.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.CollectionExtensions.RemoveAll``1(System.Collections.Generic.ICollection{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Removes all items from the collection those satisfy the given <paramref name="predicate"/>.
+            </summary>
+            <typeparam name="T">Type of the items in the collection</typeparam>
+            <param name="source">The collection</param>
+            <param name="predicate">The condition to remove the items</param>
+            <returns>List of removed items</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.CollectionExtensions.RemoveAll``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Removes all items from the collection.
+            </summary>
+            <typeparam name="T">Type of the items in the collection</typeparam>
+            <param name="source">The collection</param>
+            <param name="items">Items to be removed from the list</param>
+        </member>
+        <member name="T:NafathAPI.Extensions.DictionaryExtensions">
+            <summary>
+            Extension methods for Dictionary.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.TryGetValue``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String,``0@)">
+            <summary>
+            This method is used to try to get a value in a dictionary if it does exists.
+            </summary>
+            <typeparam name="T">Type of the value</typeparam>
+            <param name="dictionary">The collection object</param>
+            <param name="key">Key</param>
+            <param name="value">Value of the key (or default value if key not exists)</param>
+            <returns>True if key does exists in the dictionary</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.GetOrDefault``2(System.Collections.Generic.Dictionary{``0,``1},``0)">
+            <summary>
+            Gets a value from the dictionary with given key. Returns default value if can not find.
+            </summary>
+            <param name="dictionary">Dictionary to check and get</param>
+            <param name="key">Key to find the value</param>
+            <typeparam name="TKey">Type of the key</typeparam>
+            <typeparam name="TValue">Type of the value</typeparam>
+            <returns>Value if found, default if can not found.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.GetOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Gets a value from the dictionary with given key. Returns default value if can not find.
+            </summary>
+            <param name="dictionary">Dictionary to check and get</param>
+            <param name="key">Key to find the value</param>
+            <typeparam name="TKey">Type of the key</typeparam>
+            <typeparam name="TValue">Type of the value</typeparam>
+            <returns>Value if found, default if can not found.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.GetOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0)">
+            <summary>
+            Gets a value from the dictionary with given key. Returns default value if can not find.
+            </summary>
+            <param name="dictionary">Dictionary to check and get</param>
+            <param name="key">Key to find the value</param>
+            <typeparam name="TKey">Type of the key</typeparam>
+            <typeparam name="TValue">Type of the value</typeparam>
+            <returns>Value if found, default if can not found.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.GetOrDefault``2(System.Collections.Concurrent.ConcurrentDictionary{``0,``1},``0)">
+            <summary>
+            Gets a value from the dictionary with given key. Returns default value if can not find.
+            </summary>
+            <param name="dictionary">Dictionary to check and get</param>
+            <param name="key">Key to find the value</param>
+            <typeparam name="TKey">Type of the key</typeparam>
+            <typeparam name="TValue">Type of the value</typeparam>
+            <returns>Value if found, default if can not found.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.GetOrAdd``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``0,``1})">
+            <summary>
+            Gets a value from the dictionary with given key. Returns default value if can not find.
+            </summary>
+            <param name="dictionary">Dictionary to check and get</param>
+            <param name="key">Key to find the value</param>
+            <param name="factory">A factory method used to create the value if not found in the dictionary</param>
+            <typeparam name="TKey">Type of the key</typeparam>
+            <typeparam name="TValue">Type of the value</typeparam>
+            <returns>Value if found, default if can not found.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.GetOrAdd``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``1})">
+            <summary>
+            Gets a value from the dictionary with given key. Returns default value if can not find.
+            </summary>
+            <param name="dictionary">Dictionary to check and get</param>
+            <param name="key">Key to find the value</param>
+            <param name="factory">A factory method used to create the value if not found in the dictionary</param>
+            <typeparam name="TKey">Type of the key</typeparam>
+            <typeparam name="TValue">Type of the value</typeparam>
+            <returns>Value if found, default if can not found.</returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DictionaryExtensions.GetOrAdd``2(System.Collections.Concurrent.ConcurrentDictionary{``0,``1},``0,System.Func{``1})">
+            <summary>
+            Gets a value from the concurrent dictionary with given key. Returns default value if can not find.
+            </summary>
+            <param name="dictionary">Concurrent dictionary to check and get</param>
+            <param name="key">Key to find the value</param>
+            <param name="factory">A factory method used to create the value if not found in the dictionary</param>
+            <typeparam name="TKey">Type of the key</typeparam>
+            <typeparam name="TValue">Type of the value</typeparam>
+            <returns>Value if found, default if can not found.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NafathAPI.Extensions.DictionaryExtensions.ConvertToDynamicObject(System.Collections.Generic.Dictionary{System.String,System.Object})" -->
+        <member name="M:NafathAPI.Extensions.DistributedCachExtensions.SetRecordAsync``1(Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.String,``0,System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+            <summary>
+            Set an item to the distributed cache.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cache"></param>
+            <param name="recordId"></param>
+            <param name="data"></param>
+            <param name="absoluteExpireTime"></param>
+            <param name="unusedExpireTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.DistributedCachExtensions.GetRecordAsync``1(Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.String)">
+            <summary>
+            Get an item from the distributed cache.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cache"></param>
+            <param name="recordId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NafathAPI.Extensions.QueryableExtensions">
+            <summary>
+            Some useful extension methods for <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.Extensions.QueryableExtensions.PageBy``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Used for paging. Can be used as an alternative to Skip(...).Take(...) chaining.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.Extensions.QueryableExtensions.PageBy``2(``1,System.Int32,System.Int32)">
+            <summary>
+            Used for paging. Can be used as an alternative to Skip(...).Take(...) chaining.
+            </summary>
+        </member>
+        <member name="M:NafathAPI.Extensions.QueryableExtensions.WhereIf``1(System.Linq.IQueryable{``0},System.Boolean,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Filters a <see cref="T:System.Linq.IQueryable`1"/> by given predicate if given condition is true.
+            </summary>
+            <param name="query">Queryable to apply filtering</param>
+            <param name="condition">A boolean value</param>
+            <param name="predicate">Predicate to filter the query</param>
+            <returns>Filtered or not filtered query based on <paramref name="condition"/></returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.QueryableExtensions.WhereIf``2(``1,System.Boolean,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Filters a <see cref="T:System.Linq.IQueryable`1"/> by given predicate if given condition is true.
+            </summary>
+            <param name="query">Queryable to apply filtering</param>
+            <param name="condition">A boolean value</param>
+            <param name="predicate">Predicate to filter the query</param>
+            <returns>Filtered or not filtered query based on <paramref name="condition"/></returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.QueryableExtensions.WhereIf``1(System.Linq.IQueryable{``0},System.Boolean,System.Linq.Expressions.Expression{System.Func{``0,System.Int32,System.Boolean}})">
+            <summary>
+            Filters a <see cref="T:System.Linq.IQueryable`1"/> by given predicate if given condition is true.
+            </summary>
+            <param name="query">Queryable to apply filtering</param>
+            <param name="condition">A boolean value</param>
+            <param name="predicate">Predicate to filter the query</param>
+            <returns>Filtered or not filtered query based on <paramref name="condition"/></returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.QueryableExtensions.WhereIf``2(``1,System.Boolean,System.Linq.Expressions.Expression{System.Func{``0,System.Int32,System.Boolean}})">
+            <summary>
+            Filters a <see cref="T:System.Linq.IQueryable`1"/> by given predicate if given condition is true.
+            </summary>
+            <param name="query">Queryable to apply filtering</param>
+            <param name="condition">A boolean value</param>
+            <param name="predicate">Predicate to filter the query</param>
+            <returns>Filtered or not filtered query based on <paramref name="condition"/></returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.StringExtensions.PascalToKebabCase(System.String)">
+            <summary>
+            https://stackoverflow.com/questions/37301287/how-do-i-convert-pascalcase-to-kebab-case-with-c
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NafathAPI.Extensions.TypeExtensions.GetFieldInfosIncludingBaseClasses(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            https://stackoverflow.com/questions/9201859/why-doesnt-type-getfields-return-backing-fields-in-a-base-class
+            </summary>
+        </member>
+        <member name="M:NafathAPI.Extensions.TypeExtensions.IsAssignableTo``1(System.Type)">
+             <summary>
+             Determines whether an instance of this type can be assigned to
+             an instance of the <typeparamref name="TTarget"></typeparamref>.
+            
+             Internally uses <see cref="M:System.Type.IsAssignableFrom(System.Type)"/>.
+             </summary>
+             <typeparam name="TTarget">Target type</typeparam> (as reverse).
+        </member>
+        <member name="M:NafathAPI.Extensions.TypeExtensions.IsAssignableTo(System.Type,System.Type)">
+             <summary>
+             Determines whether an instance of this type can be assigned to
+             an instance of the <paramref name="targetType"></paramref>.
+            
+             Internally uses <see cref="M:System.Type.IsAssignableFrom(System.Type)"/> (as reverse).
+             </summary>
+             <param name="type">this type</param>
+             <param name="targetType">Target type</param>
+        </member>
+        <member name="M:NafathAPI.Extensions.TypeExtensions.GetBaseClasses(System.Type,System.Boolean)">
+            <summary>
+            Gets all base classes of this type.
+            </summary>
+            <param name="type">The type to get its base classes.</param>
+            <param name="includeObject">True, to include the standard <see cref="T:System.Object"/> type in the returned array.</param>
+        </member>
+        <member name="M:NafathAPI.Extensions.TypeExtensions.GetBaseClasses(System.Type,System.Type,System.Boolean)">
+            <summary>
+            Gets all base classes of this type.
+            </summary>
+            <param name="type">The type to get its base classes.</param>
+            <param name="stoppingType">A type to stop going to the deeper base classes. This type will be be included in the returned array</param>
+            <param name="includeObject">True, to include the standard <see cref="T:System.Object"/> type in the returned array.</param>
+        </member>
+    </members>
+</doc>
