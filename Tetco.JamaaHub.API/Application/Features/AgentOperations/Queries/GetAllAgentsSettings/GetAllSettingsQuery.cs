@@ -1,4 +1,4 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces.AsasLandingzoneDb;
 using Domain.Common.Patterns;
 
 namespace Application.Features.AgentOperations.Queries.GetAllSettings

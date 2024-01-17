@@ -19,9 +19,15 @@ public sealed class HubUniversityAgentConfiguration : IEntityTypeConfiguration<H
             .HasMaxLength(200)
             .IsRequired();
 
+        builder.Property(g => g.InstituteCode)
+          .HasMaxLength(10)
+          .IsRequired();
+
         builder.Property(g => g.MackAddresses)
             .HasMaxLength(200)
             .HasConversion(x=>string.Join(",",x),y=>y.Split(",",StringSplitOptions.RemoveEmptyEntries))
             .IsRequired();
+
+        builder.HasIndex(x => x.InstituteCode);
     }
 }
