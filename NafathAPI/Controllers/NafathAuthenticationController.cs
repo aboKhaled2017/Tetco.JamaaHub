@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NafathAPI.Application.Nafath;
 using NafathAPI.Domain.Nafath.Dto;
@@ -16,8 +17,12 @@ namespace NafathAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route ( "challenge" )]
-        public async Task<IActionResult> SignIn ( NafathSignInRequest request , CancellationToken cancellationToken )
+        public async Task<IActionResult> SignIn ( [FromServices] IValidator<NafathSignInRequest> validator , NafathSignInRequest request , CancellationToken cancellationToken )
             {
+            var validRes = await validator.ValidateAsync ( request );
+
+            if ( !validRes.IsValid )
+                return NotValidRequest ( validRes );
             var signInCommand = new SignInCommand { Request = request };
             var signinResponse = await Mediator.Send ( signInCommand , cancellationToken );
 
@@ -35,8 +40,12 @@ namespace NafathAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route ( "NafathCheckStatus" )]
-        public async Task<IActionResult> NafathCheckStatus ( NafathCheckStatusRequest request , CancellationToken cancellationToken )
+        public async Task<IActionResult> NafathCheckStatus ( [FromServices] IValidator<NafathCheckStatusRequest> validator , NafathCheckStatusRequest request , CancellationToken cancellationToken )
             {
+            var validRes = await validator.ValidateAsync ( request );
+
+            if ( !validRes.IsValid )
+                return NotValidRequest ( validRes );
             var checkStatusCommand = new CheckStatusCommand { Request = request };
             var response = await Mediator.Send ( checkStatusCommand , cancellationToken );
             if ( response.Succeeded )

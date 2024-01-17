@@ -57,7 +57,7 @@ app.MapControllerRoute (
 
 app.MapRazorPages ( );
 
-app.MapFallbackToFile ( "index.html" );
+app.MapFallbackToFile ( "swagger/index.html" );
 
 app.UseExceptionHandler ( options => { } );
 

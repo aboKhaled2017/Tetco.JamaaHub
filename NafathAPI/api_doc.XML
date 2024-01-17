@@ -4,14 +4,14 @@
         <name>NafathAPI</name>
     </assembly>
     <members>
-        <member name="M:NafathAPI.Controllers.NafathAuthenticationController.SignIn(NafathAPI.Domain.Nafath.Dto.NafathSignInRequest,System.Threading.CancellationToken)">
+        <member name="M:NafathAPI.Controllers.NafathAuthenticationController.SignIn(FluentValidation.IValidator{NafathAPI.Domain.Nafath.Dto.NafathSignInRequest},NafathAPI.Domain.Nafath.Dto.NafathSignInRequest,System.Threading.CancellationToken)">
             <summary>
             Basic Auth
             </summary>
             <param name="nationalId"></param>
             <returns></returns>
         </member>
-        <member name="M:NafathAPI.Controllers.NafathAuthenticationController.NafathCheckStatus(NafathAPI.Domain.Nafath.Dto.NafathCheckStatusRequest,System.Threading.CancellationToken)">
+        <member name="M:NafathAPI.Controllers.NafathAuthenticationController.NafathCheckStatus(FluentValidation.IValidator{NafathAPI.Domain.Nafath.Dto.NafathCheckStatusRequest},NafathAPI.Domain.Nafath.Dto.NafathCheckStatusRequest,System.Threading.CancellationToken)">
             <summary>
             Basic Auth
             </summary>

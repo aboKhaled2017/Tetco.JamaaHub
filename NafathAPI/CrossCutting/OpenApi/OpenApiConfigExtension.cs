@@ -36,6 +36,7 @@ public static class OpenApiConfigExtension
         {
         services.AddSwaggerGen ( config =>
         {
+
             config.SwaggerDoc ( "v1" , new OpenApiInfo ( )
                 {
                 Title = " Nafath-API" ,

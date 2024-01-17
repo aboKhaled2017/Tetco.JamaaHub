@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
+using NafathAPI.Common.Behaviours;
 using NafathAPI.Common.Interfaces;
 using NafathAPI.CrossCutting.Middlewares;
 using NafathAPI.CrossCutting.OpenApi;
@@ -15,7 +18,6 @@ public static class DependencyInjection
         {
         services.AddHttpContextAccessor ( );
         services.AddAutoMapper ( Assembly.GetExecutingAssembly ( ) );
-        services.AddExceptionHandler<CustomExceptionHandler> ( );
         services.AddRazorPages ( );
         services.AddControllersWithViews ( );
         services.AddEndpointsApiExplorer ( );
@@ -39,13 +41,21 @@ public static class DependencyInjection
                    };
                options.InstanceName = configuration ["CacheSettings:InstanceName"];
                } );
+        services.AddAutoMapper ( Assembly.GetExecutingAssembly ( ) );
+
+        services.AddValidatorsFromAssembly ( Assembly.GetExecutingAssembly ( ) );
+
+        services.AddMediatR ( cfg =>
+        {
+            cfg.RegisterServicesFromAssembly ( Assembly.GetExecutingAssembly ( ) );
+            cfg.AddBehavior ( typeof ( IPipelineBehavior<,> ) , typeof ( UnhandledExceptionBehaviour<,> ) );
+            cfg.AddBehavior ( typeof ( IPipelineBehavior<,> ) , typeof ( ValidationBehaviour<,> ) );
+        } );
+
 
         services.AddScoped<ISerializer , NewtonsoftJsonSerializer> ( );
-        services.AddHttpClient ( );
-
         services.AddTransient<IRestClient , RestClient> ( );
-
-        // Customise default API behaviour
+        services.AddHttpClient ( );
         services.Configure<ApiBehaviorOptions> ( options =>
             options.SuppressModelStateInvalidFilter = true );
         services.AddScoped<IApiKeyValidationService , ApiKeyValidationService> ( );
