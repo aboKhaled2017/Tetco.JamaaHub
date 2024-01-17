@@ -1,5 +1,6 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
 using Application.Common.Models;
+using Domain.Common.Patterns;
 
 namespace Application.Common.Interfaces;
 
