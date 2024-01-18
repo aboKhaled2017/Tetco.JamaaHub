@@ -1,5 +1,5 @@
 ﻿using Application.Common.Interfaces;
-using Infrastructure.Data.JameahHub.Identity;
+using Infrastructure.DataPersistence.JameahHub.Identity;
 using JamaaHub.Tests.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;

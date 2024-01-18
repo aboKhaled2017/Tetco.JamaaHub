@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace Infrastructure.Data.JameahHub.Interceptors;
+namespace Infrastructure.DataPersistence.JameahHub.Interceptors;
 
 public class AuditableEntityInterceptor : SaveChangesInterceptor
 {

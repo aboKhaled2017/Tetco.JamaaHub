@@ -3,7 +3,7 @@ using Domain.Common.Exceptions;
 using Domain.Constants;
 using Microsoft.AspNetCore.Identity;
 
-namespace Infrastructure.Data.JameahHub.Identity;
+namespace Infrastructure.DataPersistence.JameahHub.Identity;
 
 public static class IdentityResultExtensions
 {

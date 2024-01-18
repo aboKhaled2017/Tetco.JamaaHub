@@ -1,6 +1,6 @@
 ﻿using Application.Common.Interfaces;
-using Infrastructure.Data.JameahHub.Identity;
-using Infrastructure.Data.JameahHub;
+using Infrastructure.DataPersistence.JameahHub.Identity;
+using Infrastructure.DataPersistence.JameahHub;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

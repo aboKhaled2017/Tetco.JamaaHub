@@ -2,30 +2,28 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.JameahHub.Configurations;
-
-public sealed class HubUniversityAgentConfiguration : IEntityTypeConfiguration<HubAgent>
+namespace Infrastructure.DataPersistence.JameahHub.Configurations;
+public sealed class HubAgentConfiguration : IEntityTypeConfiguration<HubAgent>
 {
     public void Configure(EntityTypeBuilder<HubAgent> builder)
     {
-        builder.ToTable("Agents");
+        builder.ToTable("Agents", "Hub");
         builder.HasKey(x => x.Id);
 
         builder.Property(g => g.NameAr)
-           .HasMaxLength(200)
+           .HasMaxLength(50)
            .IsRequired();
 
         builder.Property(g => g.NameEn)
-            .HasMaxLength(200)
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.Property(g => g.InstituteCode)
           .HasMaxLength(10)
           .IsRequired();
 
-        builder.Property(g => g.MackAddresses)
-            .HasMaxLength(200)
-            .HasConversion(x=>string.Join(",",x),y=>y.Split(",",StringSplitOptions.RemoveEmptyEntries))
+        builder.Property(g => g.IpAddress)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.HasIndex(x => x.InstituteCode);
@@ -37,5 +35,9 @@ public sealed class HubUniversityAgentConfiguration : IEntityTypeConfiguration<H
         builder.Property(x => x.AgentApiAccessKey)
             .HasMaxLength(200)
             .IsRequired();
+
+        builder.HasMany(x => x.SchemaTypes)
+            .WithOne(x => x.HubAgent)
+            .HasForeignKey(x => x.HubAgentId);
     }
 }

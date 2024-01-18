@@ -1,12 +1,12 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Domain.Entities.Hub;
+using Domain.Entities.Hub.UniversityAgent;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Infrastructure.Data.JameahHub;
+namespace Infrastructure.DataPersistence.JameahHub;
 
 public static class InitialiserExtensions
 {
@@ -54,21 +54,30 @@ public class JamaaHubDbContextInitialiser
     {
         try
         {
-            if (!await _context.Universities.AnyAsync())
+            if (!await _context.Agents.AnyAsync())
             {
-                await _context.Universities.AddAsync(new Domain.Entities.Hub.HubUniversityAgent
+                var agent = new HubAgent
                 {
                     NameAr = "جامعه أ",
                     NameEn = "Jamaa A",
-                    MackAddresses=new string[] {"xxx.xxx.xx","yyy.yyy.yy"}
-                });
+                    IpAddress = "192.168.1.1",
+                    AgentApiAccessKey = "xxx_asas",
+                    AgentServiceUrl = "https://localhost:5000/agentA",
+                    InstituteCode = "agent_a"
+                };
+
+                await _context.Agents.AddAsync(agent);
+
+                await _context.SaveChangesAsync(cancellationToken);
+
+                agent.SchemaTypes.Add(HubAgentSchema.Create(agent,"Students","Students Schema","v1.0.0"));
 
                 await _context.SaveChangesAsync(cancellationToken);
             }
 
             if (!await _userManager.Users.AnyAsync())
             {
-                var university = await _context.Universities.FirstOrDefaultAsync();
+                var university = await _context.Agents.FirstOrDefaultAsync();
 
                 if (university is null)
                     throw new Exception("faild to find any registed university");

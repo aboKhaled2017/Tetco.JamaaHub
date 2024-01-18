@@ -1,7 +1,7 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain;
 using API.MiddleWares;
 using API.Services;
-using Infrastructure.Data.JameahHub;
+using Infrastructure.DataPersistence.JameahHub;
 using Microsoft.AspNetCore.Mvc;
 
 

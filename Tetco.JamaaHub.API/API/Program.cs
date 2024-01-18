@@ -1,6 +1,6 @@
 using Application;
 using Infrastructure;
-using Infrastructure.Data.JameahHub;
+using Infrastructure.DataPersistence.JameahHub;
 using API;
 using API.MiddleWares;
 

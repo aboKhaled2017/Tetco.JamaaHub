@@ -1,0 +1,3 @@
+add-migration init -context JamaaHubDbContext -o Migrations/JamaaHub
+update-database -context JamaaHubDbContext
+

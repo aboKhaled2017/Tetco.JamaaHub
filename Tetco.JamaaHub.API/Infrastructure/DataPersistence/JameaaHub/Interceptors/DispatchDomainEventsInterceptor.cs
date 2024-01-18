@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace Infrastructure.Data.JameahHub.Interceptors;
+namespace Infrastructure.DataPersistence.JameahHub.Interceptors;
 
 public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
 {

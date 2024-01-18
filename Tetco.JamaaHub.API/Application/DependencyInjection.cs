@@ -23,6 +23,7 @@ public static class DependencyInjection
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
         });
         services.AddTransient<ISerializer, NewtonsoftJsonSerializer>();
+        services.AddTransient<IRestClient, RestClient>();
         return services;
     }
 }

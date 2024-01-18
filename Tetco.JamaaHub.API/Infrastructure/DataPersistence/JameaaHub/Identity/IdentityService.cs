@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Data.JameahHub.Identity;
+namespace Infrastructure.DataPersistence.JameahHub.Identity;
 
 public class IdentityService : IIdentityService
 {

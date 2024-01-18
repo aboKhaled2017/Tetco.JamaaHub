@@ -6,7 +6,7 @@ namespace Application.Common.Interfaces;
 
 public interface IJamaaHubDbContext
 {
-    DbSet<HubAgent> Universities
+    DbSet<HubAgent> Agents
     {
         get;
     }

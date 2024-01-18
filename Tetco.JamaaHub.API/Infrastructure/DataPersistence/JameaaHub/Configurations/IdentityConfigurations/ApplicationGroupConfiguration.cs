@@ -2,11 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.JameahHub.Configurations;
+namespace Infrastructure.DataPersistence.JameahHub.Configurations;
 public class ApplicationGroupConfiguration : IEntityTypeConfiguration<ApplicationGroup<Guid>>
 {
     public void Configure(EntityTypeBuilder<ApplicationGroup<Guid>> builder)
     {
+        builder.ToTable("Groups","Identity");
+
         builder.Property(g => g.NameAr)
             .HasMaxLength(200)
             .IsRequired();
