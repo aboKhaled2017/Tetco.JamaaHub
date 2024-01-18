@@ -1,12 +1,12 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain;
 
-namespace Domain.Entities.Hub;
+namespace Domain.Entities.Hub.Log;
 
-public sealed class HubLog:BaseEntity<long>
+public sealed class HubLog : BaseEntity<long>
 {
     public HubLog()
     {
-       CreateionDate = DateTime.Now;
+        CreateionDate = DateTime.Now;
     }
     public int SysCode { get; set; }
     public string LogLevel { get; set; }

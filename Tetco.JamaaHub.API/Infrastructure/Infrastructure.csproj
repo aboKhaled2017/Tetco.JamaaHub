@@ -23,7 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\JamaaHub\" />
-    <Folder Include="Migrations\AsasLandingZone\" />
   </ItemGroup>
 
 </Project>

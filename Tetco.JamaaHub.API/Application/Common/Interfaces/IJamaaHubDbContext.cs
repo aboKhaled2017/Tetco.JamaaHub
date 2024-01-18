@@ -1,11 +1,12 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Domain.Entities.Hub;
+using Domain.Entities.Hub.Log;
+using Domain.Entities.Hub.UniversityAgent;
 
 namespace Application.Common.Interfaces;
 
 public interface IJamaaHubDbContext
 {
-    DbSet<HubUniversityAgent> Universities
+    DbSet<HubAgent> Universities
     {
         get;
     }

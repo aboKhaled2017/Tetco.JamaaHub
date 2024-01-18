@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Hub;
+﻿using Domain.Entities.Hub.Log;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

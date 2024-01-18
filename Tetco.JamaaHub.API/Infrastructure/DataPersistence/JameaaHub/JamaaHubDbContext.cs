@@ -1,6 +1,7 @@
 ﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
 using Application.Common.Interfaces;
-using Domain.Entities.Hub;
+using Domain.Entities.Hub.Log;
+using Domain.Entities.Hub.UniversityAgent;
 using Infrastructure.Data.JameahHub.Configurations;
 using Infrastructure.Utilities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -16,7 +17,7 @@ public class JamaaHubDbContext : IdentityDbContext<ApplicationUser, ApplicationR
     {
         _logger = logger;
     }
-    public DbSet<HubUniversityAgent> Universities => base.Set<HubUniversityAgent>();
+    public DbSet<HubAgent> Universities => base.Set<HubAgent>();
     public DbSet<HubLog> Logs => Set<HubLog>();
     public DbSet<ApplicationGroup<Guid>> Groups => Set<ApplicationGroup<Guid>>();
     public DbSet<ApplicationPermission<Guid>> Permissions => Set<ApplicationPermission<Guid>>();

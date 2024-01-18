@@ -1,12 +1,12 @@
-﻿using Domain.Entities.Hub;
+﻿using Domain.Entities.Hub.UniversityAgent;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.JameahHub.Configurations;
 
-public sealed class HubUniversityAgentConfiguration : IEntityTypeConfiguration<HubUniversityAgent>
+public sealed class HubUniversityAgentConfiguration : IEntityTypeConfiguration<HubAgent>
 {
-    public void Configure(EntityTypeBuilder<HubUniversityAgent> builder)
+    public void Configure(EntityTypeBuilder<HubAgent> builder)
     {
         builder.ToTable("Agents");
         builder.HasKey(x => x.Id);
@@ -29,5 +29,13 @@ public sealed class HubUniversityAgentConfiguration : IEntityTypeConfiguration<H
             .IsRequired();
 
         builder.HasIndex(x => x.InstituteCode);
+
+        builder.Property(x => x.AgentServiceUrl)
+            .HasMaxLength(200)
+            .IsRequired();
+
+        builder.Property(x => x.AgentApiAccessKey)
+            .HasMaxLength(200)
+            .IsRequired();
     }
 }
