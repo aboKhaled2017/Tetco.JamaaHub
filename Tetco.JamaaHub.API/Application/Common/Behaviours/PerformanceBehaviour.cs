@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.Extensions.Logging;
 using Application.Common.Interfaces;
-using Abd.CleanArchitecture.Kernel.Domain;
+using Domain.BuildingBlocks;
 
 namespace Application.Common.Behaviours;
 

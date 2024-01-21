@@ -1,10 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using Domain.BuildingBlocks;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
-using Abd.CleanArchitecture.Kernel.Domain;
-using Microsoft.EntityFrameworkCore;
 
 
-namespace Abd.CleanArchitecture.Kernel.Repository
+namespace Application.Repository
 {
 
     public abstract class EfRepositoryBase<TEntity, TKey> : EfRepositoryBase<TEntity>, IRepository<TEntity, TKey> where TEntity : class, IBaseEntity<TKey>

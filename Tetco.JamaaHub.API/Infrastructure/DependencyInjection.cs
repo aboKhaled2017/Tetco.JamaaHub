@@ -1,10 +1,10 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain;
-using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Application.Common.Interfaces.AsasLandingzoneDb;
 using Application.Common.Settings;
 using Ardalis.GuardClauses;
+using Domain.BuildingBlocks;
 using Domain.Constants;
+using Domain.Entities.Identity;
 using Infrastructure.AgentDataModels;
 using Infrastructure.DataPersistence.JameahHub;
 using Infrastructure.DataPersistence.JameahHub.Identity;

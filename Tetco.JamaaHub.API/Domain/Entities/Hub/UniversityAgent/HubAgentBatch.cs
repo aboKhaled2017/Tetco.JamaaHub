@@ -1,4 +1,4 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain;
+﻿using Domain.BuildingBlocks;
 using Domain.Entities.Hub.UniversityAgent.ValueObjects;
 
 namespace Domain.Entities.Hub.UniversityAgent;

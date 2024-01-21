@@ -1,4 +1,4 @@
-﻿namespace Abd.CleanArchitecture.Kernel.Domain;
+﻿namespace Domain.BuildingBlocks;
 
 public abstract class BaseAuditableEntity : BaseEntity, IBaseAuditableEntity
    {

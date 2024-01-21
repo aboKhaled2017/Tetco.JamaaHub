@@ -1,7 +1,7 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Domain.Entities.Hub.Log;
 using Domain.Entities.Hub.UniversityAgent;
+using Domain.Entities.Identity;
 using Infrastructure.DataPersistence.JameahHub.Configurations;
 using Infrastructure.Utilities;
 using Microsoft.AspNetCore.Identity;

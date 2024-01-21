@@ -1,4 +1,4 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain;
+﻿using Domain.BuildingBlocks;
 
 namespace Domain.Entities.AsasLandZone;
 

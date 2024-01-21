@@ -1,4 +1,4 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain;
+﻿using Domain.BuildingBlocks;
 using API.MiddleWares;
 using API.Services;
 using Infrastructure.DataPersistence.JameahHub;

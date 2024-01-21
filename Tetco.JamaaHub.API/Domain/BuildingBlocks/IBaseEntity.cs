@@ -1,4 +1,4 @@
-﻿namespace Abd.CleanArchitecture.Kernel.Domain;
+﻿namespace Domain.BuildingBlocks;
 
 /// <summary>
 /// Defines an entity. It's primary key may not be "Id" or it may have a composite primary key.

@@ -1,7 +1,6 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Application.Common.Settings;
+﻿using Application.Common.Settings;
 using Domain.Constants;
-using Microsoft.AspNetCore.Authentication;
+using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

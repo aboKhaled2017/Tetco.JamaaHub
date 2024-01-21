@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Abd.CleanArchitecture.Kernel.Domain;
+namespace Domain.BuildingBlocks;
 
 public abstract class BaseEntity : IBaseEntity
 {

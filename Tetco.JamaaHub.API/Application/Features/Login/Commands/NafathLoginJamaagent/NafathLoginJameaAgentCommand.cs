@@ -1,8 +1,8 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Application.Common.Settings;
 using Domain.Common.Interfaces;
 using Domain.Constants;
+using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Text;
 
 namespace Application.Features.Login.Commands.NafathLoginJameaAgent
-    {
+{
     public record NafathLoginJameaAgentResponse ( bool success , string token , string message )
         {
         public static NafathLoginJameaAgentResponse Success ( string token )

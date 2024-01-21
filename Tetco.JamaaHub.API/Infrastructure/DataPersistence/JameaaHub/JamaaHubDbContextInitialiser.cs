@@ -1,5 +1,6 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Domain.Entities.Hub.UniversityAgent;
+﻿using Domain.Entities.Hub.UniversityAgent;
+using Domain.Entities.Identity;
+using Infrastructure.DataPersistence.JameahHub.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

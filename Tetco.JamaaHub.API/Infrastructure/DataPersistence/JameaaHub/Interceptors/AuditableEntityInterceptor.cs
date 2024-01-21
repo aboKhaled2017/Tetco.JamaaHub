@@ -1,4 +1,4 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain;
+﻿using Domain.BuildingBlocks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;

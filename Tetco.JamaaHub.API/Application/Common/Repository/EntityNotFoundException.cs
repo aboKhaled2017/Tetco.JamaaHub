@@ -1,4 +1,4 @@
-﻿namespace Abd.CleanArchitecture.Kernel.Repository;
+﻿namespace Application.Repository;
 
 public class EntityNotFoundException : Exception
 {

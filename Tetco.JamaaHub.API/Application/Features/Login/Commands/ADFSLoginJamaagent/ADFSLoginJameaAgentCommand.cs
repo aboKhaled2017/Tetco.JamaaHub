@@ -1,8 +1,8 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Application.Common.Settings;
 using Domain.Common.Interfaces;
 using Domain.Constants;
+using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Application.Features.Login.Commands.ADFSLoginJameaAgent
-    {
+{
     public record ADFSLoginJameaAgentResponse ( bool success , string token , string message )
         {
         public static ADFSLoginJameaAgentResponse Success ( string token )

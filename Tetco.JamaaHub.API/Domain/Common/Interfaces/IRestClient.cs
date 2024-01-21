@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 
 namespace Domain.Common.Interfaces
-    {
+{
     public interface IRestClient
         {
         #region GET

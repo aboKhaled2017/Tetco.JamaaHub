@@ -1,7 +1,7 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain;
+﻿using Domain.BuildingBlocks;
 using System.Linq.Expressions;
 
-namespace Abd.CleanArchitecture.Kernel.Repository
+namespace Application.Repository
 {
 
     /// <summary>

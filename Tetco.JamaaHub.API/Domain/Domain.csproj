@@ -12,9 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.2.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Abd.CleanArchitecture.Kernel\Abd.CleanArchitecture.Kernel.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

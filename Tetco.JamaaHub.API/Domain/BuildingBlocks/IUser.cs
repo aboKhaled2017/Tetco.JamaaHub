@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Abd.CleanArchitecture.Kernel.Domain;
+namespace Domain.BuildingBlocks;
 
 public interface IUser : IUser<string>
    {

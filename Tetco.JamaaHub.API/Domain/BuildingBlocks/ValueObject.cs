@@ -1,4 +1,4 @@
-﻿namespace Abd.CleanArchitecture.Kernel.Domain;
+﻿namespace Domain.BuildingBlocks;
 
 // Learn more: https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects
 public abstract class ValueObject

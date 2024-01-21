@@ -1,4 +1,4 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain.Identity;
+﻿using Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

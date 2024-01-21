@@ -1,4 +1,4 @@
-﻿using Abd.CleanArchitecture.Kernel.Domain;
+﻿using Domain.BuildingBlocks;
 using Application.Common.Exceptions;
 using Application.Common.Interfaces;
 using Application.Common.Security;
