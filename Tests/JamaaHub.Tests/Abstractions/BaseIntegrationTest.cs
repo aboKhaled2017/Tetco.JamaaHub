@@ -1,21 +1,16 @@
-﻿using Application.Common.Interfaces;
-using Infrastructure.DataPersistence.JameahHub.Identity;
+﻿using Application;
+using Application.Common.Interfaces;
+using Application.Common.Interfaces.AsasLandingzoneDb;
+using FluentValidation;
+using Infrastructure.AgentDataModels;
 using Infrastructure.DataPersistence.JameahHub;
+using JamaaHub.API.Tests.Abstractions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
-using Infrastructure.AgentDataModels;
-using Application.Common.Interfaces.AsasLandingzoneDb;
-using Application;
 
 namespace JamaaHub.Tests.Abstractions
 {
@@ -62,13 +57,14 @@ namespace JamaaHub.Tests.Abstractions
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
-            //services.AddMediatR(cfg =>
-            //{
-            //    cfg.RegisterServicesFromAssembly(typeof(IJamaaHubDbContext).Assembly);
-            //});
+           
 
             services.AddApplicationServices();
-            services.RemoveService<>();
+            services.RemoveByServiceType(typeof(IPipelineBehavior<,>));
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(typeof(IJamaaHubDbContext).Assembly);
+            });
 
             SetupAddtionalServices(services);
 
@@ -80,9 +76,11 @@ namespace JamaaHub.Tests.Abstractions
         }
 
         protected abstract void SetupAddtionalServices(ServiceCollection services);
-        protected abstract ValueTask DisposeOtherResourcesAsync();
+        protected abstract Task DisposeOtherResourcesAsync();
         public async ValueTask DisposeAsync()
         {
+            await DisposeOtherResourcesAsync();
+
             // Clean up the database after each test
             _context.Database.EnsureDeleted();
            
@@ -90,7 +88,6 @@ namespace JamaaHub.Tests.Abstractions
 
             await _asasLandZoneDb.DisposeAsync(); 
 
-            await DisposeOtherResourcesAsync();
         }
     }
 }

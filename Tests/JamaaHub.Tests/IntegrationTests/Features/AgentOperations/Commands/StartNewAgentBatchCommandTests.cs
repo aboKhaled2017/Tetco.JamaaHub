@@ -51,10 +51,9 @@ namespace JamaaHub.API.Tests.IntegrationTests.Features.AgentOperations.Commands
             isBatchInserted.ShouldBeTrue();
         }
 
-        protected override ValueTask DisposeOtherResourcesAsync()
+        protected override async Task DisposeOtherResourcesAsync()
         {
-
-            return ValueTask.CompletedTask;
+            await _asasLandZoneDb.Database.ExecuteSqlRawAsync("delete from Batches");
         }
 
         protected override void SetupAddtionalServices(ServiceCollection services)
@@ -64,5 +63,7 @@ namespace JamaaHub.API.Tests.IntegrationTests.Features.AgentOperations.Commands
 
             services.AddScoped<IIdentityService>(_ => identityServiceMock.Object);
         }
+
+
     }
 }

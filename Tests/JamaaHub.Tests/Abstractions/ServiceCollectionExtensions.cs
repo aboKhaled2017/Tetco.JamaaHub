@@ -24,5 +24,18 @@ namespace JamaaHub.API.Tests.Abstractions
 
             return newServices;
         }
+        public static IServiceCollection RemoveByServiceType(this IServiceCollection services, Type serviceType)
+        {
+            var descriptorsToRemove = services
+                .Where(descriptor => descriptor.ServiceType == serviceType)
+                .ToList();
+
+            foreach (var descriptor in descriptorsToRemove)
+            {
+                services.Remove(descriptor);
+            }
+
+            return services;
+        }
     }
 }
