@@ -1,21 +1,20 @@
 ﻿using Application.Common.Interfaces.AsasLandingzoneDb;
 using Application.Common.Interfaces.AsasLandingzoneDb.Dtos;
 using Domain.Common.Patterns;
-using Microsoft.AspNetCore.Mvc;
+using Domain.Enums;
 
 namespace Application.Features.AgentOperations.Commands.StartNewAgentBatch
 {
     public sealed record StartNewAgentBatchCommand:IRequest<Result>
     {
-        public string SchemaTypeId { get; set; }
-        public string MigrationType { get; set; }
+        public int SchemaTypeId { get; set; }
+        public MigrationType MigrationType { get; set; }
         public Guid BatchId { get; set; }
-        [FromQuery]
         public string SchemaVersion { get; set; }
         public int TotalRecordsCount { get; set; }
         public DateTime StartDate { get; set; }
         public string InstituteCode { get; set; }
-        public int PriorityLevelId { get; set; }
+        public PriorityLevel PriorityLevel { get; set; }
     }
     public sealed class StartNewAgentBatchCommandHandler : IRequestHandler<StartNewAgentBatchCommand, Result>
     {

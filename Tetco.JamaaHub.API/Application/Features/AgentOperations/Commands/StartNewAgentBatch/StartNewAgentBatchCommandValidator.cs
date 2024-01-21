@@ -10,8 +10,16 @@ namespace Application.Features.AgentOperations.Commands.StartNewAgentBatch
                 .NotEmpty().WithMessage("SchemaTypeId is required");
 
             RuleFor(x => x.MigrationType)
-                .NotEmpty().WithMessage("MigrationType is required")
-                .Must(x => MigrationType.GetKeys().Contains(x)).WithMessage($"MigrationType value should be one of [{MigrationType.CommaSeperatedkeys()}]");
+                .NotEmpty()
+                .WithMessage("MigrationType is required")
+                .Must(x => x.IsValid())
+                .WithMessage($"MigrationType value should be one of [{MigrationType.CommaSeperatedkeys()}]");
+
+            RuleFor(x => x.PriorityLevel)
+                .NotEmpty()
+                .WithMessage("MigrationType is required")
+                .Must(x => x.IsValid())
+                .WithMessage($"MigrationType value should be one of [{PriorityLevel.CommaSeperatedkeys()}]");
 
             RuleFor(x => x.BatchId)
                     .NotEmpty().WithMessage("BatchId is required");

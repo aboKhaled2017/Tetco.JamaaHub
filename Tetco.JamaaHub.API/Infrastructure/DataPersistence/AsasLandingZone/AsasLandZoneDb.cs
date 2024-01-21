@@ -2,9 +2,12 @@
 using Application.Common.Interfaces.AsasLandingzoneDb;
 using Application.Common.Interfaces.AsasLandingzoneDb.Dtos;
 using Domain.Entities.AsasLandZone;
+using Domain.Enums;
 using Infrastructure.AgentDataModels.Configurations;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Data;
 
 namespace Infrastructure.AgentDataModels;
 
@@ -24,9 +27,48 @@ public partial class AsasLandZoneDb : DbContext, IAsasLandZoneDb
         throw new NotImplementedException();
     }
 
-    public Task<(bool isValid, string errorMessage)> Execute_StartNewBatchFroAgent_SP(StartNewBatchSPInput input, CancellationToken cancellationToken)
+    public async Task<(bool isValid, string errorMessage)> Execute_StartNewBatchFroAgent_SP(StartNewBatchSPInput input, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var affectedRowsParameter = new SqlParameter
+            {
+                ParameterName = "@AffectedRows",
+                SqlDbType = SqlDbType.Int,
+                Direction = ParameterDirection.Output
+            };
+
+            await Database.ExecuteSqlRawAsync(
+                "EXEC [dbo].[AddNewBatche] " +
+                "@SchemaTypeId, " +
+                "@MigrationTypeId, " +
+                "@PriorityLevelId, " +
+                "@InstituteCode, " +
+                "@BatchGUID, " +
+                "@SchemaVersion, " +
+                "@TotalRecordsCount, " +
+                "@StartDate, " +
+                "@AffectedRows OUTPUT",
+
+                new SqlParameter("@SchemaTypeId", input.SchemaTypeId),
+                new SqlParameter("@MigrationTypeId", input.MigrationTypeId),
+                new SqlParameter("@PriorityLevelId", input.PriorityLevelId),
+                new SqlParameter("@InstituteCode", input.InstituteCode),
+                new SqlParameter("@BatchGUID", input.BatchId),
+                new SqlParameter("@SchemaVersion", input.SchemaVersion),
+                new SqlParameter("@TotalRecordsCount", input.TotalRecordsCount),
+                new SqlParameter("@StartDate", input.StartDate),
+                affectedRowsParameter);
+
+            int affectedRows = (int)affectedRowsParameter.Value;
+            _logger.LogInformation($"affected rows at landing zone {affectedRows} , the batch has been started successfully with landing zone");
+
+            return (true, "the batch has been started successfully with landing zone");
+        }
+        catch (Exception ex) 
+        {
+            return (false, ex.Message);
+        }
     }
 
     public Task<(bool isValid, string errorMessage)> Execute_StopCurrentForAgentBatch_SP(StopCurrentBatchSPInput input, CancellationToken cancellationToken)

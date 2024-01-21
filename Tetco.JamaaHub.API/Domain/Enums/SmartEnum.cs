@@ -33,6 +33,9 @@ public abstract record SmartEnum<TEnum,TValue>(string key,TValue value)
 
     public static implicit operator SmartEnum<TEnum, TValue>(string key)
         => GetAll()[key];
+
+    public bool IsValid()
+        => GetByKey(key) != null;
 }
 
 public abstract record SmartEnum<TEnum> : SmartEnum<TEnum, string>

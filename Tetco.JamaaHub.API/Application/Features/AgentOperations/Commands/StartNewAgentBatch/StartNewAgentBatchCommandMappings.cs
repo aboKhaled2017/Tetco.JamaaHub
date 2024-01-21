@@ -7,7 +7,8 @@ namespace Application.Features.AgentOperations.Commands.StartNewAgentBatch
         public StartNewAgentBatchCommandMappings()
         {
             CreateMap<StartNewAgentBatchCommand, StartNewBatchSPInput>()
-                 .ForMember(x => x.MigrationTypeId, f => f.MapFrom(s => MigrationType.GetByKey(s.MigrationType).value));
+                 .ForMember(x => x.MigrationTypeId, f => f.MapFrom(s => MigrationType.GetByKey(s.MigrationType).value))
+                 .ForMember(x => x.PriorityLevelId, f => f.MapFrom(s => PriorityLevel.GetByKey(s.PriorityLevel).value));
         }
     }
 }
